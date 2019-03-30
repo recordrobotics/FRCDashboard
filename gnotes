@@ -1,0 +1,19 @@
+recieved values:
+"adjustGrabber"
+"goingForBalls"
+"adjustMovementTape"
+"adjustMovementPiece"
+
+sent values:
+gyro.yaw
+drivetrain.left_encoder
+drivetrain.right_encoder
+acqisition.encoder
+roller.encoder
+aquisition.switch0
+awuisition.swithc1
+lifter.encoder
+lifter.switch0
+lifter.switch1
+lifter.switch2
+
