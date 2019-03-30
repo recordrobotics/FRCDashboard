@@ -62,6 +62,28 @@ setupMarks();
 // Now including additions by programers who cannot code
 
 
+var canvas = document.getElementById("mysteryCircles");
+var ctx = canvas.getContext("2d");
+var x = 100;
+var y = 100;
+function graphPoint(xp,yp){
+	ctx.fillStyle = "#FF0000";
+	ctx.beginPath();
+	ctx.arc(xp, yp, 10, 0, 2 * Math.PI);
+	ctx.stroke();
+}
+NetworkTables.addKeyListener('/SmartDashboard/x', (key, value) => {
+	x = (value).toFixed(0)
+	graphPoint(x,y)
+});
+NetworkTables.addKeyListener('/SmartDashboard/y', (key, value) => {
+	y = (value).toFixed(0)
+	graphPoint(x,y)
+});
+
+
+
+
 NetworkTables.addKeyListener('/SmartDashboard/lifter.encoder', (key, value) => {
 	let MIN = 0.00;
 	let MAX = 2.00;
@@ -74,7 +96,6 @@ NetworkTables.addKeyListener('/SmartDashboard/lifter.encoder', (key, value) => {
 	lifterBar.style.height = (width-MIN)*100/2 + '%';
 	lifterStats.innerHTML = ((width-MIN)*100/2).toFixed(1) + '% (Lifter)';
 });
-
 
 NetworkTables.addKeyListener('/SmartDashboard/lifter.encoder', (key, value) => {
 	let MIN = 0.00;
